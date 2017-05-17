@@ -1,7 +1,22 @@
 class EventsController < ApplicationController
 
-  def show
-    @events = Event.all.order(:date)
+  def index
+    @events = Event.all
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
+  def create
+
+  end
+
+  def destroy
+
+  end
+
+  def update
+
+  end
 end
