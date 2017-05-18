@@ -8,6 +8,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def new
+    render json: 'new'
+  end
+
   def create
     @new_event = Event.new(event_params)
     if @new_event.save
@@ -25,15 +29,16 @@ class EventsController < ApplicationController
     else
       #TODO notice: have not destroyed the event
     end
+  end
 
+  def edit
+    render json: 'edit'
   end
 
   def update
+    @event = Event.find(params[:id])
 
-  end
-
-  def new
-    render json: 'new'
+    @event.update_attributes(event_params)
   end
 
   private
