@@ -8,9 +8,16 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get show' do
-    event = Event.create!(name:'name', date:DateTime.now)
-    get events_path, params:{id: event.id}
+    event = create(:event, :event_one)
+    get events_path+"/#{event.id}"
     assert_response :success
+  end
+
+  test 'create route works correctly' do
+    event = build(:event, :event_one)
+    post events_path, params: {event:{name: event.name, date: event.date, description: event.description}}
+
+    assert_equal 1,Event.all.count
   end
 
 end

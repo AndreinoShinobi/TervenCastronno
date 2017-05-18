@@ -9,6 +9,12 @@ class EventsController < ApplicationController
   end
 
   def create
+    @new_event = Event.new(event_params)
+    if @new_event.save
+
+    else
+      render 'new'
+    end
 
   end
 
@@ -18,5 +24,15 @@ class EventsController < ApplicationController
 
   def update
 
+  end
+
+  def new
+    render json: 'new'
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:name, :date, :description)
   end
 end
