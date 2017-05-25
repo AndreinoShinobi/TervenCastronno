@@ -6,7 +6,7 @@ class WebPagesController < ApplicationController
   end
 
   def our_events
-    @all_events = Event.all
+    @all_events = Event.all.order(date: :desc)
   end
 
   def who_we_are
