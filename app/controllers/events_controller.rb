@@ -25,9 +25,9 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     if @event.destroy
-      #TODO view destroyed
+      #TODO view after destroying
     else
-      #TODO notice: have not destroyed the event
+      #TODO non deleted
     end
   end
 

@@ -1,1 +1,41 @@
-home
+<div id="eventsSlider" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <% @last_events.size.times do |i| %>
+        <li data-target="#eventsSlider" data-slide-to="<%= i %>"
+            <% if i == 0 %>
+            class="active"
+            <% end %>
+            >
+        </li>
+    <% end %>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+
+    <% @last_events.each do |event| %>
+
+        <div
+        <% if @last_events[0] == event %>
+          class="item active"
+        <% else %>
+          class="item"
+        <% end %>
+        >
+          <img src="" alt="<%= event.name %>" style="width:100%;">
+        </div>
+    <% end %>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#eventsSlider" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#eventsSlider" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

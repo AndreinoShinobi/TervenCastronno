@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get '/who_we_are', to: 'web_pages#who_we_are'
   get '/contacts', to: 'web_pages#contacts'
 
-  # scope admin
   resources :events
+
 end

@@ -6,19 +6,22 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
 
   <body>
 
-  <div class="jumbotron">
+  <div class="center jumbotron">
     <div class="container text-center">
       <h1>Terven Giovani di Castronno</h1>
       <p>associazione di promozione sociale, culturale, sportiva senza scopo di lucro</p>
     </div>
   </div>
 
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse no-padding">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="<%= home_path %>">Logo</a>
@@ -31,21 +34,21 @@
           <li><a href="<%= contacts_path %>">Contatti</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Amministrazione</a></li>
+          <li><a href="<%= events_path %>"><span class="glyphicon glyphicon-log-in"></span> Amministrazione</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
+
   <div class="container">
     <%= yield %>
   </div>
 
-  <div class="container-fluid footer navbar-fixed-bottom">
-    <nav class="navbar navbar-inverse">
-      <p>Footer Text</p>
-    </nav>
-  </div>
+  <footer class="container-fluid navbar-fixed-bottom">
+    <p>TERVEN Giovani di Castronno - associazione di promozione sociale, culturale, sportiva senza scopo di lucro
+      Via Campo dei Fiori 1 - 21040 Castronno (Varese)    terven.castronno@gmail.com </p>
+  </footer>
 
   </body>
 
