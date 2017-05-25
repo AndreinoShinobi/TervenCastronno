@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    render json: 'new'
+    #TODO partial form [like edit]
   end
 
   def create
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-    render json: 'edit'
+    #TODO partial form [like new]
   end
 
   def update
