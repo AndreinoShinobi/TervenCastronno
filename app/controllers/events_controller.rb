@@ -9,6 +9,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @new_event = Event.new
     #TODO partial form [like edit]
   end
 
