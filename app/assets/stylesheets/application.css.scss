@@ -16,8 +16,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background-image: url('/images/bkg.png');
+}
+
+footer {
+  background-image: url('/images/bkg_green.png');
+  padding: 25px;
+
+}
+
 /* Remove the navbar's default rounded borders and increase the bottom margin */
 .navbar {
+  background-image: url('/images/bkg_green.png');
   margin-bottom: 50px;
   border-radius: 0;
 }
@@ -25,12 +36,13 @@
 /* Remove the jumbotron's default bottom margin */
 .jumbotron {
   margin-bottom: 0;
-}
-
-/* Add a gray background color and some padding to the footer */
-footer {
-  background-color: #f2f2f2;
-  padding: 25px;
+  background:rgba(0,0,0,0);
 
 }
+
+
+
+
+
+
 
