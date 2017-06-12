@@ -1,4 +1,9 @@
 <div  class="container">
+  <div>
+    <%= link_to '<button class="btn">Nuovo evento</button>'.html_safe, new_event_path %>
+    <%= link_to '<button class="btn">LogOut</button>'.html_safe, '/logout', method: :delete %>
+  </div>
+  <br>
   <% @events.each do |event| %>
       <li class="list-group-item">
         <%= event.name %>
@@ -7,4 +12,3 @@
       </li>
   <% end %>
 </div>
-

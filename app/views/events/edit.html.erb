@@ -1,26 +1,27 @@
 <div class="row">
 
   <div class="col-md-6 col-md-offset-3">
+    <%= link_to '<button class="btn">Nuovo evento</button>'.html_safe, new_event_path %>
     <%= link_to '<button class="btn">Edita eventi</button>'.html_safe, events_path %>
     <%= link_to '<button class="btn">LogOut</button>'.html_safe, '/logout', method: :delete %>
   </div>
 
   <div class="col-md-6 col-md-offset-3">
-    <h2>Nuovo Evento</h2>
+    <h2>Edita Evento</h2>
   </div>
 
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@new_event) do |f| %>
+    <%= form_for(@event) do |f| %>
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, value: @event.name %>
 
         <%= f.label :date %>
         <%= f.date_select :date %>
 
         <%= f.label :description %>
-        <%= f.text_area :description %>
+        <%= f.text_area :description, value: @event.description %>
 
-        <%= f.submit 'Registra Evento', class: 'btn btn-primary' %>
+        <%= f.submit 'Edita Evento', class: 'btn btn-primary' %>
     <% end %>
   </div>
 

@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
 
+  before_action :is_admin_logged?
+
   def index
     @events = Event.all
   end
@@ -10,13 +12,12 @@ class EventsController < ApplicationController
 
   def new
     @new_event = Event.new
-    #TODO partial form [like edit]
   end
 
   def create
     @new_event = Event.new(event_params)
     if @new_event.save
-
+      redirect_to events_path
     else
       render 'new'
     end
@@ -26,20 +27,24 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     if @event.destroy
-      #TODO view after destroying
+      redirect_to events_path
     else
       #TODO non deleted
     end
   end
 
   def edit
-    #TODO partial form [like new]
+    @event = Event.find(params[:id])
   end
 
   def update
     @event = Event.find(params[:id])
 
-    @event.update_attributes(event_params)
+    if @event.update_attributes(event_params)
+      redirect_to events_path
+    else
+      render 'edit'
+    end
   end
 
   private
@@ -47,4 +52,9 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :date, :description)
   end
+
+  def is_admin_logged?
+    redirect_to home_path unless logged_in?
+  end
+
 end

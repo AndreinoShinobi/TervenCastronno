@@ -5,6 +5,10 @@ module SessionsHelper
     session[:admin_id] = admin.id
   end
 
+  def log_out
+    session.clear
+  end
+
   # Returns the current logged-in user (if any).
   def current_user
     @current_user ||= Admin.find_by(id: session[:admin_id])
